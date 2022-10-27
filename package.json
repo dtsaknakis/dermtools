@@ -1,0 +1,17 @@
+{
+  "name": "dermtools",
+  "version": "0.0.1",
+  "author": "Dimitris Tsaknakis",
+  "description": "This is intended to be a JavaScript/TypeScript library containing tools useful to Dermatologists.",
+  "scripts": {
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dtsaknakis/dermtools.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
