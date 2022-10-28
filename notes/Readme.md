@@ -14,7 +14,7 @@ library's functionality.
 
 In [src](../src/):  
 
-- I created a [comsetic](../src/cosmetic/) directory and in it a 
+- I created a [cosmetic](../src/cosmetic/) directory and in it a 
   [bonta.ts](../src/cosmetic/bonta.ts) file which exports two TypeScript 
   functions; one named `bontaUnits` that returns a botulinum toxin's Units
   per vial depending on its brand name, and a second one named 
@@ -101,8 +101,8 @@ one that will be published to npm (the rest is the GitHub project's as
 a whole),  
 
 I created a [dist/package.json](../dist/package.json) for the library 
-itself. It sets the library's name, scoped under my GitHub username as 
-its scoped namespace. It sets a version, the URL of the GitHub repo, 
+itself. It sets the library's name, scoped under my npmjs username as 
+its scoped namespace. It sets a version, the URL of the/this GitHub repo, 
 where bugs/issues can be opened, a description, a homepage, the author, 
 some keywords.  
 Very important fields in it are "main" (pointing to the lib/es5/index.js 
@@ -213,7 +213,7 @@ I created a [server.js](../consumer_examples/server.js) file, and in it
 I get the library's functions and use them. This is what it looks like:  
 
 ```js
-const { brandUnits, syringeUnits, gcs, pgcs, si, sipa } = require("../dist/lib/es5");
+const { brandUnits, syringeUnits, gcs, pgcs, si, sipa } = require("@dtsaknakis/dermtools");
 
 const dysportUnits = brandUnits("   dysPORt  ");
 const phrase1 = `A Dysport vial has ${dysportUnits} Units.`;
@@ -230,7 +230,7 @@ console.log(si(95, 120));         // adult shock index score
 console.log(sipa(16, 105, 125));  // children's shock index score
 ```
 
-The file can be run via Node:
+The file can be run via the `node` command, for example:
 
 ```zsh
 cd consumer_examples
@@ -240,15 +240,14 @@ node server.js  # demoing the library
 ### ESM demo using Parcel
 
 I created a [consumer_examples/main.js](../consumer_examples/main.js) 
-and an [consumer_examples/index.html](../consumer_examples/index.html) 
+and a [consumer_examples/index.html](../consumer_examples/index.html) 
 that links to it via a script tag with `type="module"`.  
-
 The [main.js](../consumer_examples/main.js) file does the same things, 
 but this time it gets the library's functions via `import`. This is what 
 it looks like:  
 
 ```js
-import { brandUnits, syringeUnits, gcs, pgcs, si, sipa } from "../dist/lib/es6";
+import { brandUnits, syringeUnits, gcs, pgcs, si, sipa } from "@dtsaknakis/dermtools";
 
 const dysportUnits = brandUnits("   dysPORt  ");
 const phrase1 = `A Dysport vial has ${dysportUnits} Units.`;
@@ -273,4 +272,6 @@ out2.innerHTML = phrase2;
 
 The local dev server can be run with Parcel via `npm start`, automatically 
 opening the default browser to [http://localhost:1234](http://localhost:1234).  
+To close the local development server, press <kbd>Ctrl</kbd>-<kbd>C</kbd> 
+in the terminal.  
 

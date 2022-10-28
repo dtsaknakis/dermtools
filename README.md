@@ -1,14 +1,13 @@
 # dermtools
 
 - Description: A JavaScript/TypeScript library containing small tools 
-  potentially useful to Dermatologists.
-- [Useful links](notes/_useful_links.md)
+potentially useful to Dermatologists.
 - My [notes while creating the library](notes/)
-- Demo usage of the library can be found in the [consumer_examples](consumer_examples/)  
-  directory.  
+- Demo usage of the library can be found in the [consumer_examples](consumer_examples/) 
+directory.  
 - This has started out as a learning exercise for both TypeScript as well 
-  as for creating npm packages, so please be patient - the library is 
-  practically not very useful, yet.  
+as for creating npm packages, so please be patient - the library is 
+practically not very useful, yet.  
 
   ---
 
@@ -55,4 +54,6 @@ const mySyringeUnits = syringeUnits("dysport", 2.0, 0.5); // 125
 
 ## To Do
 
+- Add more functionality (utilities, tools, calculators, etc)
 - Convert any JavaScript src source code to TypeScript.
+
