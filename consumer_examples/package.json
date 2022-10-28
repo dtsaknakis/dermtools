@@ -1,0 +1,15 @@
+{
+  "name": "consumer_examples",
+  "version": "0.0.1",
+  "description": "Demo usage of the @dtsaknakis/dermtools library",
+  "scripts": {
+    "start": "parcel index.html --open"
+  },
+  "author": "Dimitris Tsaknakis",
+  "license": "ISC",
+  "devDependencies": {
+    "@dtsaknakis/dermtools": "^0.0.1",
+    "parcel": "^2.7.0",
+    "typescript": "^4.8.4"
+  }
+}

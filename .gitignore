@@ -37,7 +37,7 @@ tramp
 
 # cask packages
 .cask/
-dist/
+dist/*
 
 # Flycheck
 flycheck_*.el
@@ -381,7 +381,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+dist/*
 
 # Gatsby files
 .cache/
@@ -636,5 +636,10 @@ xcuserdata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+
+### Exclude the dist package.json and README files
+!dist/package.json
+!dist/README.md
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,osx,windows,vim,git,node,xcode,visualstudiocode,emacs,react,python,flask,dotenv,venv,virtualenv,notepadpp,jupyternotebooks

@@ -1,0 +1,32 @@
+{
+    "name": "@dtsaknakis/dermtools",
+    "version": "0.0.1",
+    "description": "A JavaScript/TypeScript library containing small tools potentially useful to Dermatologists.",
+    "main": "lib/es5/index.js",
+    "module": "lib/es6/index.js",
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dtsaknakis/dermtools.git"
+    },
+    "files": [
+        "lib",
+        "CHANGELOG.md",
+        "LICENSE",
+        "package.json",
+        "README.md"
+    ],
+    "keywords": [
+        "dermatology",
+        "medical",
+        "medicine",
+        "dermatology calculators",
+        "medical calculators"
+    ],
+    "author": "Dimitris Tsaknakis",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dtsaknakis/dermtools/issues"
+    },
+    "homepage": "https://github.com/dtsaknakis/dermtools#readme"
+}
