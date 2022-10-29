@@ -535,6 +535,7 @@ function hmrAcceptRun(bundle, id) {
 // Demo ESM usage of @dtsaknakis/dermtools
 // Run with 'npm start'
 var _dermtools = require("@dtsaknakis/dermtools");
+var _indexJs = require("../dist/lib/es6/index.js");
 const dysportUnits = (0, _dermtools.brandUnits)("   dysPORt  ");
 const phrase1 = `A Dysport vial has ${dysportUnits} Units.`;
 console.log(phrase1);
@@ -551,8 +552,37 @@ const out1 = document.getElementById("output-1");
 const out2 = document.getElementById("output-2");
 out1.textContent = phrase1;
 out2.innerHTML = phrase2;
+// Initial PASI calc and HTML element update
+const headAreaValues = [
+    3,
+    4,
+    2,
+    6
+];
+const armsAreaValues = [
+    3,
+    3,
+    3,
+    6
+];
+const trunkAreaValues = [
+    3,
+    2,
+    3,
+    6
+];
+const legsAreaValues = [
+    4,
+    4,
+    4,
+    6
+];
+const patientPASI = (0, _indexJs.pasi)(headAreaValues, armsAreaValues, trunkAreaValues, legsAreaValues).toFixed(2);
+console.log("Total PASI:", patientPASI);
+const out3 = document.getElementById("output-3");
+out3.textContent = `Patient's total PASI: ${patientPASI}`;
 
-},{"@dtsaknakis/dermtools":"bnm9M"}],"bnm9M":[function(require,module,exports) {
+},{"@dtsaknakis/dermtools":"bnm9M","../dist/lib/es6/index.js":"5r0to"}],"bnm9M":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /* Emergency tools */ parcelHelpers.export(exports, "gcs", ()=>(0, _gcs.gcs)) // Glasgow Coma Scale
@@ -666,6 +696,46 @@ var syringeUnits = function(brandName, dilution, syringeVolume) {
     var brand = brandName.trim().toLowerCase();
     var totalUnits = brandUnits(brand);
     return syringeVolume * totalUnits / dilution;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5r0to":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/* Emergency tools */ parcelHelpers.export(exports, "gcs", ()=>(0, _gcs.gcs)) // Glasgow Coma Scale
+;
+parcelHelpers.export(exports, "pgcs", ()=>(0, _gcs.pgcs)) // pediatric GCS (<2yo)
+;
+parcelHelpers.export(exports, "si", ()=>(0, _shock.si)) // shock index, adult
+;
+parcelHelpers.export(exports, "sipa", ()=>(0, _shock.sipa)) // shock index, children 4-16
+;
+/* Cosmetic tools */ // Botulinum toxin related
+parcelHelpers.export(exports, "brandUnits", ()=>(0, _bonta.brandUnits));
+parcelHelpers.export(exports, "syringeUnits", ()=>(0, _bonta.syringeUnits));
+/* Clinical tools */ // Psoriasis
+parcelHelpers.export(exports, "pasi", ()=>(0, _psoriasis.pasi));
+var _gcs = require("./emergency/gcs");
+var _shock = require("./emergency/shock");
+var _bonta = require("./cosmetic/bonta");
+var _psoriasis = require("./clinical/psoriasis");
+
+},{"./emergency/gcs":false,"./emergency/shock":false,"./cosmetic/bonta":false,"./clinical/psoriasis":"6ib9t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6ib9t":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "pasi", ()=>pasi);
+/* Tools relevant to psoriasis */ /** helper function that calculates an area's pasi */ var calcAreaScore = function(area_array) {
+    var severity = 0;
+    for(var i = 0; i < 3; i++)severity = severity + area_array[i];
+    return severity * area_array[3];
+};
+var pasi = function(head_neck, upper_limbs, trunk, lower_limbs) {
+    //
+    var headScore = calcAreaScore(head_neck) * 0.1;
+    var armsScore = calcAreaScore(upper_limbs) * 0.2;
+    var trunkScore = calcAreaScore(trunk) * 0.3;
+    var legsScore = calcAreaScore(lower_limbs) * 0.4;
+    var PASI = headScore + armsScore + trunkScore + legsScore;
+    return PASI;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1JEHZ","adjPd"], "adjPd", "parcelRequire910c")

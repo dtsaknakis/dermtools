@@ -2,6 +2,8 @@
 // Run with 'npm start'
 
 import { brandUnits, syringeUnits, gcs, pgcs, si, sipa } from "@dtsaknakis/dermtools";
+import { pasi } from "../dist/lib/es6/index.js";
+
 
 const dysportUnits = brandUnits("   dysPORt  ");
 const phrase1 = `A Dysport vial has ${dysportUnits} Units.`;
@@ -22,4 +24,15 @@ const out1 = document.getElementById("output-1");
 const out2 = document.getElementById("output-2");
 out1.textContent = phrase1;
 out2.innerHTML = phrase2;
+
+
+// Initial PASI calc and HTML element update
+const headAreaValues = [3, 4, 2, 6];
+const armsAreaValues = [3, 3, 3, 6];
+const trunkAreaValues = [3, 2, 3, 6];
+const legsAreaValues = [4, 4, 4, 6];
+const patientPASI = pasi(headAreaValues, armsAreaValues, trunkAreaValues, legsAreaValues).toFixed(2);
+console.log("Total PASI:", patientPASI);
+const out3 = document.getElementById("output-3");
+out3.textContent = `Patient's total PASI: ${patientPASI}`;
 

@@ -10,3 +10,8 @@ export { sipa } from "./emergency/shock"; // shock index, children 4-16
 export { brandUnits } from "./cosmetic/bonta";
 export { syringeUnits } from "./cosmetic/bonta";
 
+/* Clinical tools */
+
+// Psoriasis
+export { pasi } from "./clinical/psoriasis";
+
