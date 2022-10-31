@@ -44,3 +44,40 @@ Values between 0.5-0.7 are believed to be a normal shock index. Higher numbers h
 SIPA = max heart rate / min systolic blood pressure
 
 To Do
+
+## Parkland formula for burns
+
+Sources: [https://www.mdcalc.com/calc/83/parkland-formula-burns](https://www.mdcalc.com/calc/83/parkland-formula-burns)  
+
+It calculates the fluid requirements for burn patients in a 24h period.  
+Formula: Fluid requirements = tBSA burned(%) x weight(kg) x 4mL  
+
+- The first half of the total requirements should be given the first 8h of 
+the burn incident
+- The second half is given over the next 16h.  
+
+Estimation of total body surface area (tBSA) burned:  
+
+- Rule of 9s, adults:  
+  - 9% each arm
+  - 18% each leg
+  - 9% head
+  - 18% front torso
+  - 18% back torso
+- Rule of 9s, children:
+  - 9% each arm
+  - 14% each leg
+  - 18% head
+  - 18% front torso
+  - 18% back torso
+
+
+
+
+
+
+
+
+
+
+

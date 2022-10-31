@@ -1,8 +1,7 @@
 // Demo ESM usage of @dtsaknakis/dermtools
 // Run with 'npm start'
 
-import { brandUnits, syringeUnits, gcs, pgcs, si, sipa } from "@dtsaknakis/dermtools";
-import { pasi } from "../dist/lib/es6/index.js";
+import { brandUnits, syringeUnits, gcs, pgcs, si, sipa, pasi, parkland } from "@dtsaknakis/dermtools";
 
 
 const dysportUnits = brandUnits("   dysPORt  ");
@@ -35,4 +34,9 @@ const patientPASI = pasi(headAreaValues, armsAreaValues, trunkAreaValues, legsAr
 console.log("Total PASI:", patientPASI);
 const out3 = document.getElementById("output-3");
 out3.textContent = `Patient's total PASI: ${patientPASI}`;
+
+// Parkland formula for burns
+const fluids24h = parkland(80, 1005);
+const phrase3 = `An 80kg patient with a 5% burn area requires: ${fluids24h}L of fluids the first 24h.`;
+console.log(phrase3);
 

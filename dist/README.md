@@ -1,14 +1,14 @@
 # \@dtsaknakis/dermtools
 
-- Last update: 2022-10-29
-
----
-
 ## Info
 
 A JavaScript/TypeScript library containing small tools potentially 
 useful to Dermatologists.  
-So far it only has demo code:  
+Currently created as a toy project, 
+also serving the purpose of being a learning experience, therefore use with 
+care and at your own risk - should you do so.  
+
+Sample of the library's functions:  
 
 - `brandUnits`: accepts one of three botulinum toxin brand names 
 ("botox", "dysport", "bocouture") and returns their units per vial  
@@ -23,6 +23,8 @@ the specified dilution when preparing it.
 area affected, for the respective body region. The function returns the 
 total PASI score, a number (it may need rounding down the decimals, left 
 to the library consumer to do if he wishes).  
+- `parkland`: for burn injury patients, returns the approximate amount of 
+fluids, in liters, that he/she needs in the first 24 hours, depending on his/her weight and the body surface area percentage injured (uses the Parkland Formula).
 
 More utilities and calculators will be added in time.  
 
@@ -54,4 +56,3 @@ import { brandUnits, syringeUnits } from "@dtsaknakis/dermtools";
 const botoxUnits = brandUnits("botox"); // 100
 const mySyringeUnits = syringeUnits("dysport", 2.0, 0.5); // 125
 ```
-
