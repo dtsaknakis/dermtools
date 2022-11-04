@@ -8,7 +8,7 @@
   "author": "Dimitris Tsaknakis",
   "license": "ISC",
   "devDependencies": {
-    "@dtsaknakis/dermtools": "^0.0.1",
+    "@dtsaknakis/dermtools": "^0.0.2",
     "parcel": "^2.7.0",
     "typescript": "^4.8.4"
   }

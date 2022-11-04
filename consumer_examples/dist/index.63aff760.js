@@ -596,14 +596,20 @@ parcelHelpers.export(exports, "si", ()=>(0, _shock.si)) // shock index, adult
 ;
 parcelHelpers.export(exports, "sipa", ()=>(0, _shock.sipa)) // shock index, children 4-16
 ;
+parcelHelpers.export(exports, "parkland", ()=>(0, _burns.parkland)) // Parkland burns formula
+;
 /* Cosmetic tools */ // Botulinum toxin related
 parcelHelpers.export(exports, "brandUnits", ()=>(0, _bonta.brandUnits));
 parcelHelpers.export(exports, "syringeUnits", ()=>(0, _bonta.syringeUnits));
+/* Clinical tools */ // Psoriasis
+parcelHelpers.export(exports, "pasi", ()=>(0, _psoriasis.pasi));
 var _gcs = require("./emergency/gcs");
 var _shock = require("./emergency/shock");
+var _burns = require("./emergency/burns");
 var _bonta = require("./cosmetic/bonta");
+var _psoriasis = require("./clinical/psoriasis");
 
-},{"./emergency/gcs":"if8p8","./emergency/shock":"blabg","./cosmetic/bonta":"cgikL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"if8p8":[function(require,module,exports) {
+},{"./emergency/gcs":"if8p8","./emergency/shock":"blabg","./cosmetic/bonta":"cgikL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./emergency/burns":"3WAeD","./clinical/psoriasis":"buuAd"}],"if8p8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "gcs", ()=>gcs);
@@ -699,6 +705,37 @@ var syringeUnits = function(brandName, dilution, syringeVolume) {
     var brand = brandName.trim().toLowerCase();
     var totalUnits = brandUnits(brand);
     return syringeVolume * totalUnits / dilution;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3WAeD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "parkland", ()=>parkland);
+var parkland = function(weight, totalBSA) {
+    if (weight < 0 || totalBSA < 0 || totalBSA > 100) return undefined; // no negative numbers
+    else {
+        var result = totalBSA * weight * 4 / 1000;
+        return result;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"buuAd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "pasi", ()=>pasi);
+/* Tools relevant to psoriasis */ /** helper function that calculates an area's pasi */ var calcAreaScore = function(area_array) {
+    var severity = 0;
+    for(var i = 0; i < 3; i++)severity = severity + area_array[i];
+    return severity * area_array[3];
+};
+var pasi = function(head_neck, upper_limbs, trunk, lower_limbs) {
+    //
+    var headScore = calcAreaScore(head_neck) * 0.1;
+    var armsScore = calcAreaScore(upper_limbs) * 0.2;
+    var trunkScore = calcAreaScore(trunk) * 0.3;
+    var legsScore = calcAreaScore(lower_limbs) * 0.4;
+    var PASI = headScore + armsScore + trunkScore + legsScore;
+    return PASI;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1JEHZ","adjPd"], "adjPd", "parcelRequire910c")
